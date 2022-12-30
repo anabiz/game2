@@ -14,7 +14,7 @@ export default function TextField({
       <label className={labelId}>{labelValue}</label>
       <input
         className={inputId}
-        type="text"
+        type="number"
         name={name}
         value={value}
         onChange={handleChange}
