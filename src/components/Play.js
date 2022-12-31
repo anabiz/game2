@@ -5,17 +5,25 @@ import AppContext from "../AppContext";
 
 function Play() {
 
-  const {lower, upper} = useContext(AppContext);
-
+  const {lower, guess, setGuess, setInitialGuess, initialGuess, upper} = useContext(AppContext);
+  const handleInput = (e) =>{
+    const { name, value} = e.target
+    setInitialGuess({
+      ...initialGuess,[name]:value})
+  }
+  const handleClick = () => {
+    setGuess(initialGuess.guess)
+  }
   return (
     <div className="play">
        <h3>Play!</h3>
        <p>
         {`Guess the number between ${lower} and ${upper}`}
        </p>
-       <TextField name={"Guess"} labelValue={"Guess:"} />
+       <p>{`Last guess ${guess}` }</p>
+       <TextField name={"guess"} labelValue={"Guess:"} handleChange={handleInput} />
        <div>
-        <Button placeholder={"Make Guess"} />
+        <Button placeholder={"Make Guess"} onclick={handleClick}/>
        </div>
        
     </div>
