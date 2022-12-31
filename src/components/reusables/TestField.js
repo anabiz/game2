@@ -18,7 +18,8 @@ export default function TextField({
         name={name}
         value={value}
         onChange={handleChange}
-      ></input>
+        ></input>
+        *
     </>
   );
 }
